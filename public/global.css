@@ -66,3 +66,28 @@ button:not(:disabled):active {
 button:focus {
   border-color: #666;
 }
+
+.heart:before {
+  content: "\2665";
+  color: red;
+}
+.diamond:before {
+  content: "\2666";
+  color: red;
+}
+.club:before {
+  content: "\2663";
+  color: black;
+}
+.spade:before {
+  content: "\2660";
+  color: black;
+}
+.club-night:before {
+  content: "\2663";
+  color: white;
+}
+.spade-night:before {
+  content: "\2660";
+  color: white;
+}
