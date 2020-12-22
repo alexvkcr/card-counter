@@ -1,5 +1,7 @@
 <script>
 	import Headerz from "./headerz.svelte";
+	import Card from "./card.svelte";
+	let activeSection = "info";
 </script>
 
 <style>
@@ -15,4 +17,8 @@
 </style>
 
 <Headerz />
-<body />
+<body>
+	<main>
+		<Card type={activeSection} />
+	</main>
+</body>
