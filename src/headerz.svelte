@@ -2,7 +2,6 @@
 	import Section from "./section.svelte";
 
 	function switchLightMode() {
-		console.log(111);
 		window.document.body.classList.toggle("dark-mode");
 	}
 </script>
