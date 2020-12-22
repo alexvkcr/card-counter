@@ -11,6 +11,7 @@
 	:global(body.dark-mode) button {
 		background-color: #0084f6;
 		color: rgb(242, 247, 202);
+		text-shadow: 1px 1px 1px black;
 	}
 	header {
 		width: 100%;
