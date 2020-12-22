@@ -1,8 +1,13 @@
 <script>
 	import Section from "./section.svelte";
+	export let activeSection;
 
 	function switchLightMode() {
 		window.document.body.classList.toggle("dark-mode");
+	}
+
+	function changeSection(element) {
+		activeSection = element;
 	}
 </script>
 
@@ -97,9 +102,18 @@
 		<div class="heart" />
 		<div class="spade" />
 	</div>
-	<Section class="section" name="Info" />
-	<Section class="section" name="Games" />
-	<Section class="section" name="About" />
+	<Section
+		class="section"
+		name="Info"
+		on:click={(e) => changeSection(e.target.innerText)} />
+	<Section
+		class="section"
+		name="Games"
+		on:click={(e) => changeSection(e.target.innerText)} />
+	<Section
+		class="section"
+		name="About"
+		on:click={(e) => changeSection(e.target.innerText)} />
 </header>
 <div class="pos-darkmode">
 	<button class="dark-mode" on:click={switchLightMode}>Dark Mode</button>

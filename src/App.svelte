@@ -16,7 +16,7 @@
 	}
 </style>
 
-<Headerz />
+<Headerz bind:activeSection />
 <body>
 	<main>
 		<Card type={activeSection} />
