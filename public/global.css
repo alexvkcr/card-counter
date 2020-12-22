@@ -83,11 +83,11 @@ button:focus {
   content: "\2660";
   color: black;
 }
-.club-night:before {
+body.dark-mode .club:before {
   content: "\2663";
   color: white;
 }
-.spade-night:before {
+body.dark-mode .spade:before {
   content: "\2660";
   color: white;
 }
