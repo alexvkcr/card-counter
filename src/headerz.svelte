@@ -102,18 +102,9 @@
 		<div class="heart" />
 		<div class="spade" />
 	</div>
-	<Section
-		class="section"
-		name="Info"
-		on:click={(e) => changeSection(e.target.innerText)} />
-	<Section
-		class="section"
-		name="Games"
-		on:click={(e) => changeSection(e.target.innerText)} />
-	<Section
-		class="section"
-		name="About"
-		on:click={(e) => changeSection(e.target.innerText)} />
+	<Section name="Info" on:click={(e) => changeSection(e.target.innerText)} />
+	<Section name="Games" on:click={(e) => changeSection(e.target.innerText)} />
+	<Section name="About" on:click={(e) => changeSection(e.target.innerText)} />
 </header>
 <div class="pos-darkmode">
 	<button class="dark-mode" on:click={switchLightMode}>Dark Mode</button>
