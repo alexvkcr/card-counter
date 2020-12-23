@@ -12,36 +12,48 @@
 </script>
 
 <style>
+	/*Mobile first*/
+	@media only screen and (min-width: 600px) {
+		.pos-darkmode {
+		}
+	}
 	:global(body.dark-mode) button {
 		background-color: #0084f6;
 		color: rgb(242, 247, 202);
 		text-shadow: 1px 1px 1px black;
 	}
 	header {
-		width: 100%;
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
-		grid-template-rows: 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+		gap: 0px;
 		grid-template-areas:
-			"a"
-			"a a a";
+			". . ."
+			". . ."
+			". . .";
 	}
 	.shapes {
 		/*As a grid child*/
-		grid-column: span 4;
-		/*As a grid parent*/
-		display: grid;
-		grid-template-columns: 5px 5px 5px 5px;
-		grid-column-gap: 0px;
+		grid-column: span 3;
+		/*As a flexbox parent*/
 
-		padding: 0 calc(50vw - 30px);
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-content: center;
+		align-items: center;
 	}
 	.pos-darkmode {
+		grid-column: span 3;
+		display: flex;
 		width: 100%;
-		margin-left: calc(100% - 110px);
-		margin-top: 20px;
 	}
 	.dark-mode {
+		margin-left: auto;
+		margin-right: 2px;
+		order: 2;
+
 		-moz-box-shadow: 0px 1px 0px 0px #1c1b18;
 		-webkit-box-shadow: 0px 1px 0px 0px #1c1b18;
 		box-shadow: 0px 1px 0px 0px #1c1b18;
@@ -105,7 +117,7 @@
 	<Section name="Info" on:click={(e) => changeSection(e.target.innerText)} />
 	<Section name="Games" on:click={(e) => changeSection(e.target.innerText)} />
 	<Section name="About" on:click={(e) => changeSection(e.target.innerText)} />
+	<div class="pos-darkmode">
+		<button class="dark-mode" on:click={switchLightMode}>Dark Mode</button>
+	</div>
 </header>
-<div class="pos-darkmode">
-	<button class="dark-mode" on:click={switchLightMode}>Dark Mode</button>
-</div>

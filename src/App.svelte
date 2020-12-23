@@ -1,7 +1,7 @@
 <script>
 	import Headerz from "./headerz.svelte";
 	import Card from "./card.svelte";
-	let activeSection = "info";
+	let activeSection = "Info";
 </script>
 
 <style>
@@ -13,6 +13,9 @@
 	:global(body.dark-mode) {
 		background-color: black;
 		color: white;
+	}
+	Headerz {
+		max-width: 100%;
 	}
 </style>
 
