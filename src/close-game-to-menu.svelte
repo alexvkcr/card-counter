@@ -12,6 +12,9 @@
 	:global(body.dark-mode) * {
 		color: white;
 	}
+	.close-game {
+		text-align: right;
+	}
 </style>
 
-<div on:click={closeGame}>x</div>
+<div class="close-game" on:click={closeGame}>close game X</div>

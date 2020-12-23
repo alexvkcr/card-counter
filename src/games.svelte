@@ -1,5 +1,6 @@
 <script>
 	import { fade } from "svelte/transition";
+	import { crossfade } from "svelte/transition";
 	import GamePlusMinus from "./games/game-plus-minus.svelte";
 	import GameBox from "./game-box.svelte";
 
@@ -11,9 +12,22 @@
 	function closeGame() {
 		showing = "menu";
 	}
+
+	const [send, receive] = crossfade({
+		duration: 2000,
+		fallback: () => console.log("crossfade failed"),
+	});
 </script>
 
 <style>
+	:root {
+		-ms-overflow-style: none; /* Internet Explorer 10+ */
+		scrollbar-width: none; /* Firefox */
+	}
+	:root::-webkit-scrollbar {
+		display: none; /* Safari and Chrome */
+	}
+
 	:global(body.dark-mode) * {
 		color: white;
 	}
@@ -43,15 +57,17 @@
 </style>
 
 {#if showing == 'menu'}
-	<GameBox>
-		<div class="games-menu">
-			<div on:click={transitionPlusMinusGame}>Plus minus</div>
-			<div>other 1</div>
-			<div>other 2</div>
-		</div>
-	</GameBox>
+	<div in:fade={{ duration: 500, delay: 600 }} out:fade={{ duration: 500 }}>
+		<GameBox>
+			<div class="games-menu">
+				<div on:click={transitionPlusMinusGame}>Plus minus</div>
+				<div>other 1</div>
+				<div>other 2</div>
+			</div>
+		</GameBox>
+	</div>
 {:else if showing == 'gamePlusMinus'}
-	<div transition:fade>
+	<div in:fade={{ duration: 500, delay: 600 }} out:fade={{ duration: 500 }}>
 		<GamePlusMinus on:closeGame={closeGame} />
 	</div>
 {/if}
