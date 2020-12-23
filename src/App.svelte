@@ -1,6 +1,6 @@
 <script>
 	import Headerz from "./headerz.svelte";
-	import Card from "./card.svelte";
+	import Module from "./module.svelte";
 	let activeSection = "Info";
 </script>
 
@@ -22,6 +22,6 @@
 <Headerz bind:activeSection />
 <body>
 	<main>
-		<Card type={activeSection} />
+		<Module type={activeSection} />
 	</main>
 </body>

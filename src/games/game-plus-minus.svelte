@@ -1,5 +1,6 @@
 <script>
     import GameBox from "../game-box.svelte";
+    import CloseGameToMenu from "../close-game-to-menu.svelte";
 </script>
 
 <style>
@@ -8,4 +9,7 @@
     }
 </style>
 
-<GameBox>algo</GameBox>
+<GameBox>
+    <CloseGameToMenu on:closeGame />
+    <div>The game</div>
+</GameBox>

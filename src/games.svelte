@@ -6,8 +6,10 @@
 	let showing = "menu";
 
 	function transitionPlusMinusGame() {
-		console.log("from " + showing + " to +-game");
 		showing = "gamePlusMinus";
+	}
+	function closeGame() {
+		showing = "menu";
 	}
 </script>
 
@@ -50,6 +52,6 @@
 	</GameBox>
 {:else if showing == 'gamePlusMinus'}
 	<div transition:fade>
-		<GamePlusMinus />
+		<GamePlusMinus on:closeGame={closeGame} />
 	</div>
 {/if}
