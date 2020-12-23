@@ -1,8 +1,4 @@
 <script>
-	import About from "./about.svelte";
-	import Games from "./games.svelte";
-	import Info from "./info.svelte";
-	export let type;
 </script>
 
 <style>
