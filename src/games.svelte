@@ -1,5 +1,14 @@
 <script>
+	import { fade } from "svelte/transition";
 	import GamePlusMinus from "./games/game-plus-minus.svelte";
+	import GameBox from "./game-box.svelte";
+
+	let showing = "menu";
+
+	function transitionPlusMinusGame() {
+		console.log("from " + showing + " to +-game");
+		showing = "gamePlusMinus";
+	}
 </script>
 
 <style>
@@ -7,17 +16,40 @@
 		color: white;
 	}
 	.games-menu {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-template-rows: 1fr 1fr 1fr;
-		gap: 0px 0px;
-		grid-template-areas:
-			"."
-			"."
-			".";
+		height: 100%;
+		min-height: 100%;
+		display: -webkit-box;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		flex-direction: column;
+		align-items: stretch;
+	}
+	.games-menu > div {
+		-webkit-box-flex: 1;
+		flex: 1;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		border: 1px solid #ccc;
+		border-radius: 2px;
+
+		min-height: 167px;
+		text-align: center;
 	}
 </style>
 
-<GamePlusMinus />
-<div class="games-menu" />
-<!--Aquí irá un grid con los 3 juegos-->
+{#if showing == 'menu'}
+	<GameBox>
+		<div class="games-menu">
+			<div on:click={transitionPlusMinusGame}>Plus minus</div>
+			<div>other 1</div>
+			<div>other 2</div>
+		</div>
+	</GameBox>
+{:else if showing == 'gamePlusMinus'}
+	<div transition:fade>
+		<GamePlusMinus />
+	</div>
+{/if}
